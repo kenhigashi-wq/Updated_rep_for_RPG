@@ -1,4 +1,5 @@
 #KH Main
+#KH
 import char_making
 import deaninventory
 import pakistans_functions as pf
@@ -77,7 +78,7 @@ def character_visualization():
     vz.character_bar_chart(df, selected_name)
     pause()
 
-
+#test
 def visualization_menu():
     while True:
         print("\nCharacter vizulation")
