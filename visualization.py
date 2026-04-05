@@ -1,17 +1,16 @@
 import matplotlib.pyplot as plt
 
-def character_bar_chart(df, character_name):
+class DataVisualization:
+    def __init__(self, dataframe):
+        self.df = dataframe
 
-    if character_name not in df.index:
-        print("Character not found.")
-        return
+    def character_bar_chart(self, character_name):
+        if character_name not in self.df.index:
+            print("Character not found.")
+            return
 
-    stats = df.loc[character_name]
-
-    plt.figure()
-    stats.plot(kind="bar")
-    plt.title(f"{character_name} - Character Stats")
-    plt.xlabel("Attributes")
-    plt.ylabel("Value")
-    plt.tight_layout()
-    plt.show()
+        self.df.loc[character_name].plot(kind="bar")
+        plt.title(f"{character_name} Stats")
+        plt.xlabel("Attributes")
+        plt.ylabel("Value")
+        plt.show()
