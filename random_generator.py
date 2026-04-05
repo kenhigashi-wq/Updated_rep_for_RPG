@@ -1,3 +1,4 @@
+# random_generator.py
 from faker import Faker
 import random
 
@@ -11,7 +12,11 @@ class RandomGenerator:
         name = self.fake.first_name()
         race = random.choice(self.races)
         char_class = random.choice(self.classes)
-        backstory = f"{name} is a {race} {char_class} from {self.fake.city()}."
+
+        backstory = (
+            f"{name} is a {race} {char_class} from {self.fake.city()}. "
+            f"They seek adventure to {self.fake.sentence().lower()}"
+        )
 
         return {
             "name": name,

@@ -1,7 +1,5 @@
-# Enhanced RPG Character Manager
+# Upgrades RPG Character Manager
 
-This project is an upgraded version of an existing Python-based RPG Character Manager.  
-The original program allowed users to create and manage RPG characters using a text-based menu system.  
 This version enhances the project by adding **data analysis, visualization, CSV data management, and procedural generation**, as required by the assignment.
 
 ---
@@ -24,7 +22,7 @@ This version enhances the project by adding **data analysis, visualization, CSV 
 
 ### Visualization
 - Uses **Matplotlib** to visualize character statistics
-- Displays individual character stat charts
+- Displayss individual character stat charts
 - Visualizations are generated from real gameplay data
 
 
@@ -32,4 +30,9 @@ This version enhances the project by adding **data analysis, visualization, CSV 
 
 ## How to use
 If in codespaces pip install faker, pandas
-Run the program in main.
+Run the program in main
+
+.
+
+## 67
+^&^&^&^&

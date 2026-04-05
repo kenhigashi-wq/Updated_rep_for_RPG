@@ -1,10 +1,16 @@
+# data_analysis.py
+
 import pandas as pd
 
 class StatisticalAnalyzer:
-    def __init__(self, stats_dict):
-        self.df = pd.DataFrame.from_dict(stats_dict, orient="index")
+    def __init__(self, character_dict):
 
-    def basic_analysis(self):
+        self.df = pd.DataFrame.from_dict(character_dict, orient="index")
+
+    def get_dataframe(self):
+        return self.df
+
+    def analyze(self):
         return {
             "mean": self.df.mean(),
             "min": self.df.min(),
@@ -14,5 +20,6 @@ class StatisticalAnalyzer:
     def export_csv(self, filename="character_data.csv"):
         self.df.to_csv(filename)
 
-    def import_csv(self, filename="character_data.csv"):
+    @staticmethod
+    def import_csv(filename="character_data.csv"):
         return pd.read_csv(filename, index_col=0)

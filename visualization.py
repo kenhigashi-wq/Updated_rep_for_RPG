@@ -1,3 +1,5 @@
+# visualization.py
+
 import matplotlib.pyplot as plt
 
 class DataVisualization:
@@ -6,11 +8,12 @@ class DataVisualization:
 
     def character_bar_chart(self, character_name):
         if character_name not in self.df.index:
-            print("Character not found.")
+            print("Character not found")
             return
 
         self.df.loc[character_name].plot(kind="bar")
-        plt.title(f"{character_name} Stats")
+        plt.title(f"{character_name} - Character Stats")
         plt.xlabel("Attributes")
-        plt.ylabel("Value")
+        plt.ylabel("Valuue")
+        plt.tight_layout()
         plt.show()
