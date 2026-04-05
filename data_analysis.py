@@ -28,3 +28,6 @@ def load_from_csv(filename="character_stats.csv"):
     df = pd.read_csv(filename, index_col="Character")
     print(f"Character data loaded from {filename}")
     return df
+
+def import_csv(filename="character_data.csv"):
+    return pd.read_csv(filename, index_col=0)

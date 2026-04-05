@@ -18,7 +18,31 @@ names = []
 def pause():
     input("\nPress Enter to continue...")
 
+def create_character():
+    choice = input("Generate random character? (y/n): ").lower()
 
+    if choice == "y":
+        character = rg.generate_random_identity()
+        name = character["name"]
+        race = character["race"]
+        char_class = character["class"]
+
+        print("\nGenerated Character")
+        print(f"Name: {name}")
+        print(f"Race: {race}")
+        print(f"Class: {char_class}")
+        print(f"Backstory: {character['backstory']}")
+    else:
+        name = input("Enter name: ")
+        race = input("Enter race: ")
+        char_class = input("Enter class: ")
+
+    stats[name] = char_making.roll_stats()
+    inventories[name] = []
+    names.append(name)
+
+    print(f"\nCharacter '{name}' created successfully.")
+    pause()
 
 def create_character():
     choice = input("Generate random character? (y/n): ").lower()
@@ -35,7 +59,9 @@ def create_character():
         print(f"Class: {char_class}")
         print(f"Backstory: {character['backstory']}")
     else:
-        name, race, char_class = char_making.make_character()
+        name = input("Enter name: ")
+        race = input("Enter race: ")
+        char_class = input("Enter class: ")
 
     stats[name] = char_making.roll_stats()
     inventories[name] = []
@@ -134,4 +160,59 @@ def export_character_data():
     da.export_csv(df)
     pause()
 
+
+def main_menu():
+    while True:
+        print("\nRPG manager")
+        print("\nData and analysis:")
+        print("[1] Character Visualization")
+        print("[2] Statistical Analysis")
+
+        print("\nCHARACTER FEATURES:")
+        print("[3] Create Character")
+        print("[4] Random Generator")
+
+        print("\nDATA MANAGEMENT:")
+        print("[6] Import Character Data")
+        print("[5] Export Character Data")
+
+        print("\n[Q] Quit")
+
+        choice = input("\nEnter your choice: ").lower()
+
+        if choice == "1":
+            visualization_menu()
+        elif choice == "2":
+            statistical_analysis_menu()
+        elif choice == "3":
+            create_character()
+        elif choice == "4":
+            character = rg.generate_random_identity()
+            print(character["backstory"])
+            pause()
+        elif choice == "5":
+            export_character_data()
+        elif choice == "6":
+            import_character_data()
+        elif choice == "q":
+            break
+        else:
+            print("Invalid option.")
+
+def import_character_data():
+    global stats
+
+    try:
+        df = da.import_csv()
+        stats.clear()
+
+        for name, row in df.iterrows():
+            stats[name] = row.to_dict()
+
+        print("Character data imported successfully from CSV.")
+    except FileNotFoundError:
+        print("No CSV file found. Export data first.")
+    pause()
+
+main_menu()
 
