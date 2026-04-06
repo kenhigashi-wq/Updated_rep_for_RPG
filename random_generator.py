@@ -2,6 +2,9 @@
 from faker import Faker
 import random
 
+# Initialize the generator
+fake = Faker()
+
 class RandomGenerator:
     def __init__(self):
         self.fake = Faker()

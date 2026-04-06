@@ -171,7 +171,7 @@ def main_menu():
         print("[2] Statistical Analysis")
         print("[3] Character Comparison Tools")
 
-        print("\character futures:")
+        print("character futures:")
         print("[4] Create Character")
         print("[5] Random Generator")
 
