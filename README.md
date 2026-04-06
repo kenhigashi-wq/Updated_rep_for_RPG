@@ -30,6 +30,7 @@ This version enhances the project by adding **data analysis, visualization, CSV 
 
 ## How to use
 If in codespaces pip install faker, pandas
+Install faker and all neccaresy stuff
 Run the program in main
 
 .
